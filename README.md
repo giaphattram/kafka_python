@@ -11,7 +11,7 @@ Once Zookeeper is up and running, Docker will start to spin up the Kafka contain
 
 Once the test topic is created, the container is deemed healthy and will trigger Docker to start the next two containers.
 
-One of the next two container is called `script_executor`. This container will execute a bashscript creates the two `input_topic` and `output_topic` and add data into `input_topic`. This container uses the same image as Kafka container, but doesn't spin up a new Kafka broker. It contains Kafka CLI API that we use to create topics and produce records to topics.
+One of the next two container is called `script_executor`. This container will execute a bashscript that creates the two `input_topic` and `output_topic` and adds data into `input_topic`. This container uses the same image as Kafka container, but doesn't spin up a new Kafka broker. It contains Kafka CLI API that the bash script use to create topics and produce records to topics.
 
 The other container is called `python_utc_converter`. This container contains a Python application that will read from input_data, convert timezoned myTimestamp into UTC, and push the payload with the converted myTimestamp into output_topic.
 
