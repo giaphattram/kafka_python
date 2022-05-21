@@ -16,6 +16,9 @@ One of the next two container is called `script_executor`. This container will e
 The other container is called `python_utc_converter`. This container contains a Python application that will read from input_data, convert timezoned myTimestamp into UTC, and push the payload with the converted myTimestamp into output_topic.
 
 ## Installation
+
+Note: Highly recommend to run this on a Linux environment or a UNIX envirnoment with stable Docker engine. After some test, this is run with stable performance on Ubuntu 20.04 LTS, but with many issues on MacOS M1.
+
 Once you have cloned the repo, simply run the following command:
 
 ```
