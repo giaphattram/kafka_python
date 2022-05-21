@@ -48,7 +48,7 @@ Step 2: Execute the script:
 
 `/kafka/bashscripts/create_topic_and_push_data.sh`
 
-Note: Sometimes the script just takes forever to run even when you run it manually, most probably because the Kafka broker is no longer healhty. In this case please just remove the Kafka container with `docker rm --force $(echo $(docker ps | grep kafka_python_kafka) | cut -c1-12)` and run the docker-compose again with `docker-compose up --build`.
+Note: Sometimes the script just takes forever to run even when you run it manually, most probably because the Kafka broker is no longer healhty. In this case please just remove the Kafka container with `docker rm --force $(echo $(docker ps -a | grep kafka_python_kafka) | cut -c1-12)` and run the docker-compose again with `docker-compose up --build`.
 
 ### Scenario 2: The Kafka container fails to be created or fails to become healthy
 
