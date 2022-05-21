@@ -31,6 +31,8 @@ The whole operation is considered successful if you could see something similar 
 
 ![How success looks like](img/success.png)
 
+To stop the application, simply type ctrl+c in the terminal where you ran `docker-compose up --build` command.
+
 ## Troubleshooting
 
 There are some scenarios where things don't go as expected. This section will go through some scenarios I'm aware of.
