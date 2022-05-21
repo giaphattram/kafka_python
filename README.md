@@ -55,9 +55,11 @@ Note: Sometimes the script just takes forever to run even when you run it manual
 
 ### Scenario 2: The Kafka container fails to be created or fails to become healthy
 
-In this case, please just stop the operation with ctrl+c and rerun the docker-compose.
+In this case, please just stop the operation with ctrl+c and rerun the docker-compose with `docker-compose up --build`
 
-`docker-compose up --build`
+### Scenario 3: None of the scenarios above
+
+If it doesn't seem to work and none of the scenarios applies, please remove all the containers and run `docker-compose up --build` again.
 
 ## Author
 Gia Phat Tram
