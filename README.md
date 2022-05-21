@@ -19,7 +19,7 @@ The other container is called `python_utc_converter`. This container contains a 
 
 Note: Highly recommend to run this on a Linux environment or a UNIX environment with stable Docker engine. After some test, this is run with stable performance on Ubuntu 20.04 LTS, but with many issues on MacOS M1.
 
-Everything is already automated in the `docker-compose.yml`. Once you have cloned the repo, simply run the following command:
+Everything is already automated in the `docker-compose.yml`. Once you have cloned the repo, simply enter the repo folder with `cd kafka_python` and run the following command:
 
 ```
 docker-compose up --build
