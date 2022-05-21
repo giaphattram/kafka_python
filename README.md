@@ -35,7 +35,7 @@ To stop the application, simply type ctrl+c in the terminal where you ran `docke
 
 ## Troubleshooting
 
-There are some scenarios where things don't go as expected. This section will go through some scenarios I'm aware of.
+There are some scenarios where things don't go as expected. This section will go through some scenarios I'm aware of. All these scenarios happen on MacOS M1.
 
 ### Scenario 1: The service script_executor doesn't work
 
