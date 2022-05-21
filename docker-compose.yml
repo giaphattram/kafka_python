@@ -1,0 +1,45 @@
+version: '2.1'
+services:
+  zookeeper:
+    image: quay.io/debezium/zookeeper:1.9
+    ports:
+     - 2181:2181
+     - 2888:2888
+     - 3888:3888
+
+  kafka:
+    image: quay.io/debezium/kafka:1.9
+    ports:
+     - 9092:9092
+    depends_on:
+     - zookeeper
+    links:
+     - zookeeper
+    environment:
+     - ZOOKEEPER_CONNECT=zookeeper:2181
+    volumes:
+      - ./bashscripts/:/kafka/bashscripts/
+    healthcheck:
+      test: ["CMD", "/kafka/bin/kafka-topics.sh", "--bootstrap-server", "kafka:9092", "--create", "--topic", "test_topic", "--replication-factor", "1"]
+      interval: 10s
+      timeout: 600s
+      retries: 60
+    restart: on-failure
+
+  script_executor:
+    build: .
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: sh -c "sleep 60 && /kafka/bashscripts/create_topic_and_push_data.sh"
+
+  python_utc_converter:
+    image: python:3.9-slim
+    depends_on:
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./app/:/app/
+    command: sh -c "pip install kafka-python && 
+                    sleep 60 &&
+                    python /app/python_kafka_utc_converter.py"
