@@ -17,7 +17,7 @@ The other container is called `python_utc_converter`. This container contains a 
 
 ## Installation
 
-Note: Highly recommend to run this on a Linux environment or a UNIX environment with stable Docker engine. After some test, this is run with stable performance on Ubuntu 20.04 LTS, but with many issues on MacOS M1.
+Note: Highly recommend to run this on a Linux environment or a UNIX environment with stable Docker engine. After some tests, this is run with stable performance on Ubuntu 20.04 LTS, but with many issues on MacOS M1 even with [Docker GA for Apple chip](https://docs.docker.com/desktop/mac/apple-silicon/).
 
 Everything is already automated in the `docker-compose.yml`. Once you have cloned the repo, simply enter the repo folder with `cd kafka_python` and run the following command:
 
@@ -25,7 +25,7 @@ Everything is already automated in the `docker-compose.yml`. Once you have clone
 docker-compose up --build
 ```
 
-It can take quite some time for the services to be up and running, the script in `script_executor` to be executed successfully and the python application in `python_utc_converter` to be deployed successfully.
+It can take quite some time for the services to be up and running, the script in `script_executor` to be executed successfully and the python application in `python_utc_converter` to be deployed successfully. In Ubuntu 20.04 LTS, it takes 5 minutes for the result in the screenshow below to show.
 
 The whole operation is considered successful if you could see something similar to the following in STDOUT:
 
